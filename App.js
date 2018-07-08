@@ -7,9 +7,13 @@ import Header from './Header';
 export default class App extends React.Component {
   constructor(){
     super();
-    this.state={tareas:[],texto:""}
+    this.state={tareas:[],
+      texto:"",
+      cargando:true
+    }
   }
 
+  
 
   componentDidMount(){
     this.recuperarEnTelefono();
@@ -54,6 +58,12 @@ export default class App extends React.Component {
       .then((valor)=>{
         console.log(valor);
         console.log(JSON.parse(valor));
+        setTimeout(()=>{
+          this.setState({
+            cargando:false,
+          })
+        },5000)
+        
         if(valor !==null){
             const nuevasTareas=JSON.parse(valor);
             this.setState({
@@ -64,6 +74,9 @@ export default class App extends React.Component {
       })
       .catch((error)=>{
         console.log(error);
+        this.setState({
+          cargando:false,
+        })
       })
     }
   
@@ -81,7 +94,7 @@ export default class App extends React.Component {
         <Button title='recuperar'
         onPress={()=>{this.recuperarEnTelefono();}}
         /> */}
-        <Body tareas={this.state.tareas} eliminar={this.eliminarTarea}/>
+        <Body tareas={this.state.tareas} eliminar={this.eliminarTarea} cargando={this.state.cargando}/>
       </View>
     );
   }
