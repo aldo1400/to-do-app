@@ -22,6 +22,8 @@ export default class App extends React.Component {
     });
     console.log(this.state.tareas.length);
     }
+
+  
   render() {
     return (
       <View style={styles.container}>

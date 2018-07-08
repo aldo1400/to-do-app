@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
-import { FlatList } from 'react-native-gesture-handler';
-
+import { Text, View, StyleSheet,FlatList } from 'react-native'
+import Tarea from './Tarea';
 
 export default class Body extends Component {
   render() {
@@ -10,7 +9,7 @@ export default class Body extends Component {
         <Text> Body</Text>
         <FlatList
             data={this.props.tareas}
-            renderItem={({item})=><Text>{item.texto}</Text>}
+            renderItem={({item})=><Tarea item={item}/>}
         />
       </View>
     )
