@@ -16,6 +16,7 @@ export default class Body extends Component {
   }
 }
 
+
 const styles = StyleSheet.create({
     container: {
       flex: 2,

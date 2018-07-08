@@ -11,7 +11,7 @@ export default class Header extends Component {
         onChangeText={this.props.cambiarTexto}
         onSubmitEditing={this.props.agregar}
         value={this.props.texto}
-        placeholder="Aaqescribe tu t3exto"/>
+        placeholder="escribe tu texto"/>
       </View>
     )
   }
