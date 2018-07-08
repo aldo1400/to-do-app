@@ -5,7 +5,7 @@ export default class Header extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> Header </Text>
+        {/* <Text> Header </Text> */}
         <TextInput 
         style={styles.texto}
         onChangeText={this.props.cambiarTexto}

@@ -11,7 +11,7 @@ export default class App extends React.Component {
   }
 
   establecerTexto=(value)=>{
-    console.log(value);
+    // console.log(value);
     this.setState({texto:value});
   }
 
@@ -23,6 +23,13 @@ export default class App extends React.Component {
     console.log(this.state.tareas.length);
     }
 
+    eliminarTarea=(id)=>{
+      
+      const nuevasTareas=this.state.tareas.filter((tarea)=>tarea.key !== id);
+      this.setState({
+        tareas:nuevasTareas,
+      });
+    }
   
   render() {
     return (
@@ -31,8 +38,8 @@ export default class App extends React.Component {
         texto={this.state.texto}
         cambiarTexto={this.establecerTexto} 
         agregar={this.agregarTarea}/>
-        <Text>{this.state.texto}</Text>
-        <Body tareas={this.state.tareas}/>
+        {/* <Text>{this.state.texto}</Text> */}
+        <Body tareas={this.state.tareas} eliminar={this.eliminarTarea}/>
       </View>
     );
   }
